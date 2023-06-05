@@ -4,6 +4,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import { Button } from '@mui/material';
 
 function MainFeaturedPost(props) {
   const { post } = props;
@@ -34,7 +35,7 @@ function MainFeaturedPost(props) {
         }}
       />
       <Grid container>
-        <Grid item md={4}>
+        <Grid item md={5}>
           <Box
             sx={{
               position: 'relative',
@@ -48,9 +49,9 @@ function MainFeaturedPost(props) {
             <Typography variant="h5" color="inherit" paragraph>
               {post.description}
             </Typography>
-            <Typography variant="subtitle1" color="yellowgreen">
-              {post.linkText}
-            </Typography>
+            <Button variant="contained" sx={{borderRadius: '20px', color: "#E7282E", backgroundColor: "#408BD1", fontWeight:"bold"}}>
+              Cotización
+            </Button>
           </Box>
         </Grid>
       </Grid>

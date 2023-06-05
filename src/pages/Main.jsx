@@ -1,10 +1,9 @@
 import React, { useState, useEffect} from "react";
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
+import { Box } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { NavLink, useParams  } from 'react-router-dom';
-import Fab from '@mui/material/Fab';
-import ModelTrainingIcon from '@mui/icons-material/ModelTraining';
 import Header from '../components/Header'
 import Footer from '../components/Footer';
 import NotFoundPage from './NotFoundPage';
@@ -47,7 +46,7 @@ function Main() {
     return (
         <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Container maxWidth="xl">
+        <Container maxWidth="xxl" >
             <Header title="Blog" sections={sections} />
             {(ruta2)?
                 {
@@ -59,12 +58,11 @@ function Main() {
                 : <NotFoundPage />
             }
         </Container>
-        <Fab sx={{position: 'fixed', top: theme.spacing(6), right: theme.spacing(0), zIndex: 9999}} onClick={() => modo === 'light'? setModo("dark"):setModo("light")} color="primary" aria-label="add">
-            <ModelTrainingIcon />
-        </Fab>
         <Footer
             title="Contactos"
-            description="3424 MERRIAM DR, SHAWNEE, KS 66203"
+            description="Mavel´s Insurance & Multiservices "
+            description2="Phone: 816-375-844 Fax: 314-788-7224 Email: bmccall@mavelinsurance.com"
+            description3="3424 MERRIAM DR, SHAWNEE, KS 66203"
         />
         </ThemeProvider>
     )

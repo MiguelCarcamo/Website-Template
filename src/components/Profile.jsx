@@ -1,7 +1,8 @@
 import React from 'react';
-import { Grid, Typography, Paper,  } from '@mui/material';
+import { Grid, Paper, Typography, Box, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import { ExpandMore } from '@mui/icons-material'
 import profileim from '../image/Perfil.png'
-import logo from '../image/Logo.jpeg'
+import logo from '../image/Logo.png'
 
 function Profile() {
     const AboutUs = [
@@ -13,28 +14,62 @@ function Profile() {
         },
     ]
   return (
-    <Grid container>
+    <Grid container sx={{backgroundColor: '#5e7991'}}>
       {/* Primera sección */}
       <Grid item xs={12} sm={12} md={5}>
-        <img src={profileim} alt="Imagen" />
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%',
+          }}
+        >
+          <img src={profileim} alt="Imagen" style={{ borderRadius: '50%', width: '70%' }} />
+        </Box>
       </Grid>
 
       {/* Segunda sección */}
-      <Grid item xs={12} sm={12} md={7}>
+      <Grid item xs={12} sm={12} md={7} sx={{backgroundColor:'#202b36'}}>
         <img width={'100%'} src={logo} alt="Imagen" />
-        <Paper elevation={0} sx={{ p: 2, }}>
-            <Typography variant="h6" gutterBottom>
+        <Paper elevation={0} sx={{ p: 2, backgroundColor:'#202b36' }}>
+          <Accordion sx={{backgroundColor:'#408BD1'}}>
+            <AccordionSummary expandIcon={<ExpandMore />}>
+              <Typography variant="h6" gutterBottom>
                 {AboutUs[0].title}
-            </Typography>
-            <br/>
-            <Typography variant="h6">Nosotros</Typography>
-            <Typography>{AboutUs[0].About}</Typography>
-            <br/>
-            <Typography variant="h6">Mision</Typography>
-            <Typography>{AboutUs[0].Mision}</Typography>
-            <br/>
-            <Typography variant="h6">Vision</Typography>
-            <Typography>{AboutUs[0].Vision}</Typography>
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>{AboutUs[0].About}</Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion sx={{backgroundColor:'#408BD1'}}>
+            <AccordionSummary expandIcon={<ExpandMore />}>
+              <Typography variant="h6">Nosotros</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>{AboutUs[0].About}</Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion sx={{backgroundColor:'#408BD1'}}>
+            <AccordionSummary expandIcon={<ExpandMore />}>
+              <Typography variant="h6">Mision</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>{AboutUs[0].Mision}</Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion sx={{backgroundColor:'#408BD1'}}>
+            <AccordionSummary expandIcon={<ExpandMore />}>
+              <Typography variant="h6">Vision</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>{AboutUs[0].Vision}</Typography>
+            </AccordionDetails>
+          </Accordion>
         </Paper>
       </Grid>
     </Grid>
